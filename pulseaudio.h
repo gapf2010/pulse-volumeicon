@@ -1,11 +1,14 @@
-#include <pulse/pulseaudio.h>
+#ifndef PULSEAUDIO_H
+#define PULSEAUDIO_H
 
-void pulseaudio_init();
+void pulseaudio_init(void);
+void pulseaudio_refresh(void);
 
-// void pulseaudio_event();
+void pulseaudio_mute(void);
+void pulseaudio_volume(int amount);
 
-void pulseaudio_mute();
-void pulseaudio_volume(int ammount);
+// Defined in pulseaudio.c
+extern int volumeLevel;
+extern int volumeMuted;
 
-int volumeLevel;
-int volumeMuted;
+#endif

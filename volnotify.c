@@ -1,27 +1,43 @@
+#include <stdio.h>
+#include <libnotify/notify.h>
+
 #include "volnotify.h"
 
-void volnotify_init(){
-	notify_init("pulse-volumeicon");
-	volnotify_volume = notify_notification_new(NULL, NULL, NULL);
+static NotifyNotification *notification;
 
-	notify_notification_set_timeout(volnotify_volume, NOTIFY_EXPIRES_DEFAULT);
-	notify_notification_set_hint_string(volnotify_volume, "synchronous", "volume");
+void volnotify_init(void){
+	notify_init("pulse-volumeicon");
+	notification = notify_notification_new("Volume", NULL, "audio-volume-muted");
+
+	notify_notification_set_timeout(notification, NOTIFY_EXPIRES_DEFAULT);
+	// Ask the notification daemon to replace the previous volume popup
+	// instead of stacking a new one per scroll step. Different daemons
+	// look at different hints, so set both common ones.
+	notify_notification_set_hint_string(notification, "synchronous", "volume");
+	notify_notification_set_hint_string(notification,
+		"x-canonical-private-synchronous", "volume");
 }
 
 void volnotify_show(int volumeLevel, int volumeMuted){
-	if(volumeMuted || volumeLevel == 0)
-		notify_notification_update(volnotify_volume,
-			"pulse-volumeicon", NULL, "audio-volume-muted");
-	else if(volumeLevel <= 33)
-		notify_notification_update(volnotify_volume,
-			"pulse-volumeicon", NULL, "audio-volume-low");
-	else if(volumeLevel <= 66)
-		notify_notification_update(volnotify_volume,
-			"pulse-volumeicon", NULL, "audio-volume-medium");
-	else
-		notify_notification_update(volnotify_volume,
-			"pulse-volumeicon", NULL, "audio-volume-high");
+	const char *icon;
+	char body[32];
 
-	notify_notification_set_hint_int32(volnotify_volume, "value", volumeLevel);
-	notify_notification_show(volnotify_volume, NULL);
+	if(volumeMuted || volumeLevel == 0)
+		icon = "audio-volume-muted";
+	else if(volumeLevel <= 33)
+		icon = "audio-volume-low";
+	else if(volumeLevel <= 66)
+		icon = "audio-volume-medium";
+	else
+		icon = "audio-volume-high";
+
+	if(volumeMuted)
+		snprintf(body, sizeof(body), "Muted");
+	else
+		snprintf(body, sizeof(body), "%d%%", volumeLevel);
+
+	notify_notification_update(notification, "Volume", body, icon);
+	// Progress bar, for daemons that support it
+	notify_notification_set_hint_int32(notification, "value", volumeLevel);
+	notify_notification_show(notification, NULL);
 }
