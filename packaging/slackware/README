@@ -1,0 +1,10 @@
+pulse-volumeicon is a small system tray icon to control the sound volume.
+Scroll over the icon to change the volume, middle click to toggle mute,
+and left click for a menu.
+
+It changes the volume through pactl, so it works with PulseAudio 15 or
+newer and with PipeWire. The icon uses libayatana-appindicator, which
+shows it in StatusNotifierItem trays (KDE Plasma, Xfce) and falls back
+to an XEmbed icon in older trays.
+
+Volume change notifications need a running notification daemon.

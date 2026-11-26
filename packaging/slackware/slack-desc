@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                |-----handy-ruler------------------------------------------------------|
+pulse-volumeicon: pulse-volumeicon (tray icon for volume control)
+pulse-volumeicon:
+pulse-volumeicon: A small system tray icon to control the sound volume. Scroll over
+pulse-volumeicon: the icon to change the volume, middle click to toggle mute, and left
+pulse-volumeicon: click for a menu. It works with PulseAudio and with PipeWire through
+pulse-volumeicon: pactl, and uses libayatana-appindicator with a fallback for older
+pulse-volumeicon: XEmbed trays.
+pulse-volumeicon:
+pulse-volumeicon: Homepage: https://github.com/gapf2010/pulse-volumeicon
+pulse-volumeicon:
+pulse-volumeicon:

@@ -1,0 +1,30 @@
+Source: pulse-volumeicon
+Section: sound
+Priority: optional
+Maintainer: German Pulido <1203374+gapf2010@users.noreply.github.com>
+Build-Depends:
+ debhelper-compat (= 13),
+ pkg-config,
+ libgtk-3-dev,
+ libayatana-appindicator3-dev,
+ libnotify-dev,
+Standards-Version: 4.7.0
+Homepage: https://github.com/gapf2010/pulse-volumeicon
+Vcs-Browser: https://github.com/gapf2010/pulse-volumeicon
+Vcs-Git: https://github.com/gapf2010/pulse-volumeicon.git
+Rules-Requires-Root: no
+
+Package: pulse-volumeicon
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+ pulseaudio-utils,
+Description: tray icon for PulseAudio and PipeWire volume control
+ pulse-volumeicon is a small system tray icon to control the sound volume.
+ Scroll over the icon to change the volume, middle click to toggle mute,
+ and left click for a menu.
+ .
+ It uses the StatusNotifierItem protocol, so it works in KDE Plasma, Xfce,
+ Waybar and other modern trays, with a fallback for older XEmbed trays.
+ The volume is changed through pactl, which also works with PipeWire.

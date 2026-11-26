@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Volume Icon
+GenericName=Volume Control
+Comment=Tray icon to control the sound volume
+Exec=pulse-volumeicon
+Icon=audio-volume-high
+Terminal=false
+Categories=AudioVideo;Audio;Mixer;
+Keywords=volume;sound;audio;tray;pulseaudio;pipewire;

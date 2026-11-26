@@ -39,3 +39,20 @@ Building
 To install to `/usr/local/bin`:
 
     sudo make install
+
+The Makefile honours `PREFIX`, `DESTDIR`, `CFLAGS`, `CPPFLAGS` and `LDFLAGS`.
+
+Packaging
+---------
+
+Packaging files for several distributions are included:
+
+- Fedora: `packaging/fedora/pulse-volumeicon.spec`
+- Debian / Ubuntu: `debian/`
+- Arch / Omarchy: `packaging/arch/PKGBUILD`
+- Slackware: `packaging/slackware/` (SlackBuilds.org format)
+
+License
+-------
+
+MIT, see `LICENSE`.

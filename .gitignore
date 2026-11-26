@@ -16,3 +16,10 @@
 *.out
 *.app
 pulse-volumeicon
+
+# Debian build products
+debian/.debhelper/
+debian/debhelper-build-stamp
+debian/files
+debian/*.substvars
+debian/pulse-volumeicon/
