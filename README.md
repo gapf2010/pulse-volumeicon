@@ -10,7 +10,8 @@ A small system tray icon for PulseAudio / PipeWire volume control.
 
 The icon uses the StatusNotifierItem protocol (via libayatana-appindicator),
 so it works in KDE Plasma, Xfce, Waybar and other modern trays. On GNOME it
-needs the AppIndicator extension.
+needs the AppIndicator extension. For FVWM, Fluxbox, Openbox and other
+lightweight window managers, see `WINDOW-MANAGERS.md`.
 
 Volume is controlled through `pactl` on the default sink, so it works with
 PulseAudio 15+ and with PipeWire (through `pipewire-pulse`).
