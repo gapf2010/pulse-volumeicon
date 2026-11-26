@@ -53,6 +53,8 @@ Packaging files for several distributions are included:
 - Arch / Omarchy: `packaging/arch/PKGBUILD`
 - Slackware: `packaging/slackware/` (SlackBuilds.org format)
 
+See `PACKAGING.md` for step-by-step instructions on building each package.
+
 License
 -------
 
